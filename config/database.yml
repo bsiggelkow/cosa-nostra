@@ -1,0 +1,14 @@
+defaults: &defaults
+  adapter: mysql
+  host: localhost
+  username: root
+  password: root
+
+development:
+  <<: *defaults
+  database: cosa_nostra_development
+
+test:
+  adapter: sqlite3
+  database: ":memory:"
+  timeout: 5000
