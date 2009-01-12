@@ -1,0 +1,18 @@
+<p>
+  You are resetting your password. Choose a new password below.
+</p>
+
+<%= error_messages_for :user %>
+<% form_tag(password_path(:id => @user.reset_password_code), :method => :put) do %>
+  <div class="password_field">
+    <%= label_tag :password, 'Choose password' %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="password_field">
+    <%= label_tag :password_confirmation, 'Verify password' %>
+    <%= password_field_tag :password_confirmation %>
+  </div>
+  <div class="submit_field">
+    <%= submit_tag 'Save this password' %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+- form_for :session, :url => session_path do |form|
+  .text_field
+    = form.label :email
+    = form.text_field :email
+  .text_field
+    = form.label :password
+    = form.password_field :password
+  .text_field
+    = form.check_box :remember_me
+    = form.label :remember_me
+  .submit_field
+    = form.submit 'Login', :disable_with => 'Please wait...'
+    
+%ul
+  %li
+    Sign in with Facebook
+    = link_to image_tag('connect_light_medium_long.gif'), facebook_new_session_path
+  %li
+    = link_to "Sign up", new_user_path
+  %li
+    = link_to "Forgot My Password", new_password_path

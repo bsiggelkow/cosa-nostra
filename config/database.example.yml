@@ -1,0 +1,9 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: cosa_nostra_development
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: cosa_nostra_test

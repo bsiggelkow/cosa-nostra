@@ -1,0 +1,7 @@
+/config/database.yml
+/db/schema.rb
+/doc/api
+/doc/app
+/doc/plugins
+.DS_Store
+*~
