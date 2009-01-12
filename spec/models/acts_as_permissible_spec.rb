@@ -84,13 +84,6 @@ describe "acts_as_permissible" do
       @mutables.roles << @wierdos
     end
 
-    after(:each) do
-      @mutables.destroy
-      @wierdos.destroy
-      @perm.roles.reset
-      @perm.roles_list.should == []
-    end
-
     it "should return the correct list" do
       @perm.roles << @wierdos
       @perm.roles_list.size.should == 1
@@ -111,12 +104,6 @@ describe "acts_as_permissible" do
       @mutables.save!
       @immutables = Role.new(:name => "immutables")
       @immutables.save!
-    end
-    
-    after(:each) do
-      @mutables.destroy
-      @immutables.destroy
-      @perm.roles.reset
     end
     
     it "should return true if member of one" do
@@ -198,11 +185,6 @@ describe "acts_as_permissible" do
       @perm.full_permissions_hash.should == {:view_something=>false, :delete_something=>false, :download_something=>true}
     end
     
-    after(:each) do
-      @mutables.destroy
-      @immutables.destroy
-      @perm.roles.reset
-    end
   end
   
 end
