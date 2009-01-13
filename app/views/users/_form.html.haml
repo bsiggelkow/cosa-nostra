@@ -1,5 +1,11 @@
 = form.error_messages
 .text_field
+  = form.label :first_name
+  = form.text_field :first_name
+.text_field
+  = form.label :last_name
+  = form.text_field :last_name
+.text_field
   = form.label :email
   = form.text_field :email
 .password_field
@@ -8,3 +14,6 @@
 .password_field
   = form.label :password_confirmation
   = form.password_field :password_confirmation
+.select_field
+  = form.label :role
+  = select @user, :role, Role.all.collect {|role| [ role.name, role.id ] }

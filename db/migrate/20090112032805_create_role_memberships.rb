@@ -4,7 +4,6 @@ class CreateRoleMemberships < ActiveRecord::Migration
       t.integer :roleable_id
       t.string :roleable_type
       t.integer :role_id
-
       t.timestamps
     end
   end

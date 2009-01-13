@@ -1,8 +1,7 @@
 class Permission < ActiveRecord::Base
   # uncomment any of the following lines which is relevant to your application,
   # or create your own with the name of the model which acts_as_permissible.
-  #belongs_to :user
-  
+  belongs_to :user
   belongs_to :role
   
   belongs_to :permissible, :polymorphic => true
