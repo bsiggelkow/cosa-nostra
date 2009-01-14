@@ -2,6 +2,19 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
   
+  describe "has_permission?" do
+    before(:each) do
+      @role = stub_model(Role)
+      @user = User.new
+      @user.role = @role
+    end
+    
+    it "should delegate to the role" do
+      @role.expects(:has_permission?).with("Test").returns(true)
+      @user.has_permission?("Test").should be_true
+    end
+  end
+  
   describe "alive?" do
     before(:each) do
       @alive = Factory :user_status, :name => "Alive"

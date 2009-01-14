@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
     return user_status.name == UserStatus.deceased
   end
   
+  def has_permission?(name)
+    return role.has_permission?(name)
+  end
+  
 end
