@@ -5,7 +5,6 @@ describe User do
   table_has_columns(User, :string, "last_name")
   table_has_columns(User, :string, "nickname")
   table_has_columns(User, :integer, "role_id")
-  table_has_columns(User, :integer, "user_status_id")
   table_has_columns(User, :integer, "family_id")
   
   requires_presence_of User, :role
@@ -26,10 +25,21 @@ describe User do
     end
   end
   
+  describe "kill!" do
+    before(:each) do
+      @user = Factory :user
+    end
+    
+    it "should change the users state from alive to deceased" do
+      @user.alive?.should be_true
+      @user.kill!
+      @user.deceased?.should be_true
+    end
+  end
+  
   describe "alive?" do
     before(:each) do
-      @alive = Factory :user_status, :name => "Alive"
-      @user = Factory :user, :user_status => @alive
+      @user = Factory :user
     end
     
     it "should return true if user status is alive" do
@@ -39,8 +49,8 @@ describe User do
   
   describe "deceased?" do
     before(:each) do
-      @deceased = Factory :user_status, :name => "Deceased"
-      @user = Factory :user, :user_status => @deceased
+      @user = Factory :user
+      @user.kill!
     end
     
     it "should return true if user status is deceased" do
@@ -50,13 +60,11 @@ describe User do
 
   describe "named_scopes" do
     before(:each) do
-      @living = Factory :user_status, :name => "Alive"
-      @deceased = Factory :user_status, :name => "Deceased"
-      Factory :user, :user_status => @living, :role => (Factory :role, :name => "Boss")
-      Factory :user, :user_status => @deceased, :role => (Factory :role, :name => "Mobsters")
-      Factory :user, :user_status => @living, :role => (Factory :role, :name => "Mobsters")
-      Factory :user, :user_status => @living, :role => (Factory :role, :name => "Mobsters")
-      Factory :user, :user_status => @deceased, :role => (Factory :role, :name => "Boss")
+      Factory :user, :role => (Factory :role, :name => "Boss")
+      (Factory :user, :role => (Factory :role, :name => "Mobsters")).kill!
+      Factory :user, :role => (Factory :role, :name => "Mobsters")
+      Factory :user, :role => (Factory :role, :name => "Mobsters")
+      (Factory :user, :role => (Factory :role, :name => "Boss")).kill!
     end
     
     describe "alive" do
@@ -78,22 +86,22 @@ describe User do
       
       it "should sort living bosses first" do
         @users.first.role.name.should == "Boss"
-        @users.first.user_status.name.should == "Alive"
+        @users.first.should be_alive
       end
       
       it "should sort deceased bosses second" do
         @users[1].role.name.should == "Boss"
-        @users[1].user_status.name.should == "Deceased"
+        @users[1].should be_deceased
       end
       
       it "should sort living wise guys third" do
         @users[2].role.name.should == "Mobsters"
-        @users[2].user_status.name.should == "Alive"
+        @users[2].should be_alive
       end
       
       it "should sort deceased wise guys last" do
         @users.last.role.name.should == "Mobsters"
-        @users.last.user_status.name.should == "Deceased"
+        @users.last.should be_deceased
       end
     end
   end
