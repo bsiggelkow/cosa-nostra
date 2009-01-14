@@ -20,8 +20,37 @@ Factory.define :role do |role|
   role.name { random_name }
 end
 
-Factory.define :user_status do |status|
-  status.name "Alive"
+Factory.define :user_status do |user_status|
+  user_status.name "Alive"
+end
+
+Factory.define :hit do |hit|
+  hit.association(:target)
+  hit.association(:assigned_to)
+end
+
+Factory.define :assigned_to do |user|
+  user.email { random_email_address }
+  user.first_name "John"
+  user.last_name "Gotti"
+  user.password "password"
+  user.password_confirmation "password"
+  user.confirmed true
+  user.association(:role)
+  user.association(:family)
+  user.association(:user_status)
+end
+
+Factory.define :target do |user|
+  user.email { random_email_address }
+  user.first_name "John"
+  user.last_name "Gotti"
+  user.password "password"
+  user.password_confirmation "password"
+  user.confirmed true
+  user.association(:role)
+  user.association(:family)
+  user.association(:user_status)
 end
 
 def random_email_address

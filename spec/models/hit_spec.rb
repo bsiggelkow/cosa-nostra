@@ -5,7 +5,8 @@ describe Hit do
   describe "state transitions" do
     
     before(:each) do
-      @hit = Hit.create
+      @user = Factory :user
+      @hit = Factory :hit, :target => @user, :assigned_to => @user
     end
     
     it "should start at unassigned" do
@@ -27,6 +28,12 @@ describe Hit do
         @hit.state = "assigned"
         @hit.complete!
         @hit.completed?.should be_true
+      end
+      
+      it "should set the target user status to deceased" do
+        @hit.state = "assigned"
+        @hit.complete!
+        @hit.target.user_status.name.should == UserStatus.deceased
       end
       
     end

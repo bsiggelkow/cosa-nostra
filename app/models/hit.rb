@@ -1,10 +1,13 @@
 class Hit < ActiveRecord::Base
   
+  belongs_to :target, :class_name => "User"
+  belongs_to :assigned_to, :class_name => "User"
+  
   acts_as_state_machine :initial => :unassigned
   
   state :unassigned
   state :assigned
-  state :completed
+  state :completed, :after => Proc.new { |hit| hit.target.user_status.name = UserStatus.deceased }
   state :failed
   
   event :accept do
