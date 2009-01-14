@@ -1,0 +1,7 @@
+= form.error_messages
+.text_field
+  = form.label :deadline
+  = date_select(:hit, :deadline)
+.select_field
+  = form.label :hit_method
+  = select @hit, :hit_method, Role.all.collect {|role| [ role.name, role.id ] }

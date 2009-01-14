@@ -3,8 +3,6 @@ class Hit < ActiveRecord::Base
   belongs_to :target, :class_name => "User", :foreign_key => "target_id"
   belongs_to :assigned_to, :class_name => "User", :foreign_key => "assigned_to_id"
   
-  # @user.should have(1).error_on(:first_name)
-  
   acts_as_state_machine :initial => :unassigned
   
   state :unassigned

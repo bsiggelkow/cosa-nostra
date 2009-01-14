@@ -1,0 +1,3 @@
+- form_for @hit do |form|
+  = render :partial => '/hits/form', :object => form
+  = form.submit 'Issue Hit', :disable_with => 'Please wait...'

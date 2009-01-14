@@ -29,9 +29,10 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem "mocha"
+  config.gem "rspec-rails", :lib => "cgi", :version => "1.1.12"
+  config.gem 'rspec', :lib => "spec", :version => '1.1.12'
   config.gem "haml"
-  config.gem "rspec-rails", :lib => "cgi", :version => "1.1.11"
+  config.gem "mocha"
   config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => 'http://gems.github.com', :version => ">= 1.1.5"
 
   # Only load the plugins named here, in the order given. By default, all plugins 

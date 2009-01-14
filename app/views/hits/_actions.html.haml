@@ -1,5 +1,5 @@
 - if can_issue_hit(current_user, target)
-  = link_to "Issue Hit", ""
+  = link_to "Issue Hit", new_hit_path(:target_id => target.id)
   
 / - if can_accept_hit(current_user, target)
 /   = link_to "Accept Hit", ""

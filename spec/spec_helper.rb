@@ -2,6 +2,7 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec'
 require 'spec/rails'
+require 'rspec_rails_mocha'
 require 'factory_girl'
 
 Spec::Runner.configure do |config|
@@ -20,8 +21,6 @@ Spec::Runner.configure do |config|
   config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr 
-   
-  config.include AuthenticatedTestHelper    
 end
 
 # YOU CAN DO COOL STUFF LIKE DEFINE MACROS AND SUCH LIKE THIS
