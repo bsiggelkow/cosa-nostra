@@ -8,9 +8,9 @@ describe User do
       @living = Factory :user_status, :name => "Alive"
       @deceased = Factory :user_status, :name => "Deceased"
       Factory :user, :user_status => @living, :role => (Factory :role, :name => "Boss")
-      Factory :user, :user_status => @deceased, :role => (Factory :role, :name => "Wise Guy")
-      Factory :user, :user_status => @living, :role => (Factory :role, :name => "Wise Guy")
-      Factory :user, :user_status => @living, :role => (Factory :role, :name => "Wise Guy")
+      Factory :user, :user_status => @deceased, :role => (Factory :role, :name => "Mobsters")
+      Factory :user, :user_status => @living, :role => (Factory :role, :name => "Mobsters")
+      Factory :user, :user_status => @living, :role => (Factory :role, :name => "Mobsters")
       Factory :user, :user_status => @deceased, :role => (Factory :role, :name => "Boss")
     end
     
@@ -47,12 +47,12 @@ describe User do
       end
       
       it "should sort living wise guys third" do
-        @users[2].role.name.should == "Wise Guy"
+        @users[2].role.name.should == "Mobsters"
         @users[2].user_status.name.should == "Alive"
       end
       
       it "should sort deceased wise guys last" do
-        @users.last.role.name.should == "Wise Guy"
+        @users.last.role.name.should == "Mobsters"
         @users.last.user_status.name.should == "Deceased"
       end
       
