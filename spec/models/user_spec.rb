@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
+  # the next few are macros defined in your spec_helper.rb file
   table_has_columns(User, :string, "first_name")
   table_has_columns(User, :string, "last_name")
   table_has_columns(User, :string, "nickname")
@@ -11,7 +12,25 @@ describe User do
   requires_presence_of User, :family
   requires_presence_of User, :first_name
   requires_presence_of User, :last_name
+
+  # these matchers come from the rspec-on-rails-matchers plugin
+  it "should belong to a family" do
+    User.should belong_to(:family)
+  end
   
+  it "should belong to a role" do
+    User.should belong_to(:role)
+  end
+  
+  it "should have many target_hits" do
+    User.should have_many(:target_hits)
+  end
+  
+  it "should have many assigned_hits" do
+    User.should have_many(:assigned_hits)
+  end
+  
+  # normal rspec testing to follow
   describe "has_permission?" do
     before(:each) do
       @role = stub_model(Role)
