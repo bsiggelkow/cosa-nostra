@@ -12,6 +12,30 @@ Factory.define :user do |user|
   user.association(:user_status)
 end
 
+Factory.define :boss do |user|
+  user.email { random_email_address }
+  user.first_name "John"
+  user.last_name "Gotti"
+  user.password "password"
+  user.password_confirmation "password"
+  user.confirmed true
+  user.association(:boss_role)
+  user.association(:family)
+  user.association(:user_status)
+end
+
+Factory.define :mobster do |user|
+  user.email { random_email_address }
+  user.first_name "John"
+  user.last_name "Gotti"
+  user.password "password"
+  user.password_confirmation "password"
+  user.confirmed true
+  user.association(:mobster_role)
+  user.association(:family)
+  user.association(:user_status)
+end
+
 Factory.define :permission do |permission|
   permission.name { random_name }
   permission.association(:role)
@@ -23,6 +47,14 @@ end
 
 Factory.define :role do |role|
   role.name { random_name }
+end
+
+Factory.define :boss_role do |role|
+  role.name "boss"
+end
+
+Factory.define :mobster_role do |role|
+  role.name "mobster"
 end
 
 Factory.define :user_status do |user_status|
@@ -72,13 +104,3 @@ def random_string
   10.times { random_string_for_uniqueness += letters[rand(letters.size - 1)]}
   random_string_for_uniqueness
 end
-
-# == Schema Info
-# Schema version: 20090114013851
-#
-# Table name: user_statuses
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
