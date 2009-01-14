@@ -9,6 +9,7 @@
     %td Last Name
     %td Role
     %td Status
+    %td Actions
   - @family.users.ranked.each do |user|
     %tr
       %td= user.first_name
@@ -16,3 +17,4 @@
       %td= user.last_name
       %td= user.role.name
       %td= user.user_status.name
+      %td= render :partial => "/hits/actions", :locals => [:target => user]

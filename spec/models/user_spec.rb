@@ -1,6 +1,29 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
+  
+  describe "alive?" do
+    before(:each) do
+      @alive = Factory :user_status, :name => "Alive"
+      @user = Factory :user, :user_status => @alive
+    end
+    
+    it "should return true if user status is alive" do
+      @user.alive?.should be_true
+    end
+  end
+  
+  describe "deceased?" do
+    before(:each) do
+      @deceased = Factory :user_status, :name => "Deceased"
+      @user = Factory :user, :user_status => @deceased
+    end
+    
+    it "should return true if user status is deceased" do
+      @user.deceased?.should be_true
+    end
+  end
+  
   describe "named_scopes" do
     before(:each) do
       @living = Factory :user_status, :name => "Alive"

@@ -20,4 +20,13 @@ class User < ActiveRecord::Base
   named_scope :ranked, 
     :order => "roles.name, user_statuses.name ASC", 
     :include => [:user_status, :role]
+    
+  def alive?
+    return user_status.name == UserStatus.alive
+  end
+  
+  def deceased?
+    return user_status.name == UserStatus.deceased
+  end
+  
 end
