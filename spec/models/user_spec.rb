@@ -105,7 +105,9 @@ describe User do
     end
     
     it "should require a first name" do
-      @user.errors.should be_invalid(:first_name)
+      @user.errors.should be_invalid(:first_name)      
+      # different way to write the same thing. This way is a little more descriptive
+      @user.should have(1).error_on(:first_name)
     end
     
     it "should require a last name" do
