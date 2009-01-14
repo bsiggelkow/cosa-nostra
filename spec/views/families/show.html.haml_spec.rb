@@ -9,10 +9,6 @@ describe "/families/1/show.html.haml" do
   it "should render" do
     do_render
   end
-  
-  it "should have a family name" do
-    template.should have_text(@family.name)
-  end
 
   def do_render
     render_template "/families/#{@family.id}"
