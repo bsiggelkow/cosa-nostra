@@ -7,12 +7,10 @@ class User < ActiveRecord::Base
   
   belongs_to :family
   belongs_to :role
-  
-<<<<<<< HEAD:app/models/user.rb
+
   has_many :target_hits, :foreign_key => "target_id", :class_name => "Hit"
   has_many :assigned_hits, :foreign_key => "assigned_to"
   
-=======
   acts_as_state_machine :initial => :alive
   
   state :alive 
@@ -21,8 +19,7 @@ class User < ActiveRecord::Base
   event :kill do
     transitions :from => :alive, :to => :deceased, :on_transition => :save_killed_by
   end
-      
->>>>>>> Desi - turning status into a state on user:app/models/user.rb
+
   named_scope :alive, 
     :conditions => {:state => 'alive'} 
     
