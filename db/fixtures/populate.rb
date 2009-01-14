@@ -1,5 +1,5 @@
 boss_role = Factory :role, :name => "Boss"
-wise_guy_role = Factory :role, :name => "Wise Guy"
+mobster_role = Factory :role, :name => "Mobsters"
 
 bonanno_family = Factory :family, :name => "Bonanno"
 gambino_family = Factory :family, :name => "Gambino"
@@ -22,7 +22,7 @@ Factory :user,
         :email => "sal@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
         
 Factory :user, 
@@ -32,7 +32,7 @@ Factory :user,
         :email => "mouth@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
 
 Factory :user, 
@@ -42,7 +42,7 @@ Factory :user,
         :email => "fattony@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
         
 Factory :user, 
@@ -52,7 +52,7 @@ Factory :user,
         :email => "nose@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
 
 Factory :user, 
@@ -62,7 +62,7 @@ Factory :user,
         :email => "desi@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
 
 Factory :user, 
@@ -72,7 +72,7 @@ Factory :user,
         :email => "bruno@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
 
 Factory :user, 
@@ -82,7 +82,7 @@ Factory :user,
         :email => "tg@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
 
 Factory :user, 
@@ -92,7 +92,7 @@ Factory :user,
         :email => "haha@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family        
 
 Factory :user, 
@@ -102,7 +102,7 @@ Factory :user,
         :email => "rabbit@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family 
 
 Factory :user, 
@@ -112,7 +112,7 @@ Factory :user,
         :email => "nick@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family 
 
 Factory :user, 
@@ -122,7 +122,7 @@ Factory :user,
         :email => "vito@bonanno.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => bonanno_family
         
 # Gambino Family Members - boss 
@@ -143,7 +143,7 @@ Factory :user,
         :email => "executioner@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 Factory :user, 
@@ -153,7 +153,7 @@ Factory :user,
         :email => "toughtony@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 Factory :user, 
@@ -162,7 +162,7 @@ Factory :user,
         :email => "bilotti@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 
@@ -173,7 +173,7 @@ Factory :user,
         :email => "thelawyer@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 Factory :user, 
@@ -182,7 +182,7 @@ Factory :user,
         :email => "demeo@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 Factory :user, 
@@ -192,7 +192,7 @@ Factory :user,
         :email => "scars@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family 
         
 Factory :user, 
@@ -201,7 +201,7 @@ Factory :user,
         :email => "featherstone@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family       
 
 Factory :user, 
@@ -211,7 +211,7 @@ Factory :user,
         :email => "tommy@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 Factory :user, 
@@ -221,7 +221,7 @@ Factory :user,
         :email => "dapperdon@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 Factory :user, 
@@ -231,7 +231,7 @@ Factory :user,
         :email => "junior@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 Factory :user, 
@@ -241,7 +241,7 @@ Factory :user,
         :email => "salvator@gambino.com", 
         :password => "password", 
         :password_confirmation => "password", 
-        :role => wise_guy_role, 
+        :role => mobster_role, 
         :family => gambino_family
 
 
