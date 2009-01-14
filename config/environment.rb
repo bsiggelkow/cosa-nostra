@@ -32,7 +32,7 @@ Rails::Initializer.run do |config|
   config.gem "mocha"
   config.gem "haml"
   config.gem "rspec-rails", :lib => "cgi", :version => ">= 1.1.11"
-  config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => 'http://gems.github.com'
+  config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => 'http://gems.github.com', :version => ">= 1.1.5"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
