@@ -3,7 +3,7 @@ class Family < ActiveRecord::Base
 end
 
 # == Schema Info
-# Schema version: 20090114004000
+# Schema version: 20090114013851
 #
 # Table name: families
 #

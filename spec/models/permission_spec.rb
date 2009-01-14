@@ -1,6 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Permission do
+  table_has_columns(Permission, :string, "name")
+  table_has_columns(Permission, :integer, "role_id")
+  
   before(:each) do
     @valid_attributes = {
     }
@@ -11,9 +14,8 @@ describe Permission do
   end
 end
 
-
 # == Schema Info
-# Schema version: 20090114004000
+# Schema version: 20090114013851
 #
 # Table name: permissions
 #

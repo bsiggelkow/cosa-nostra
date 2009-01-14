@@ -27,3 +27,16 @@ class Hit < ActiveRecord::Base
   end
   
 end
+
+
+# == Schema Info
+# Schema version: 20090114013851
+#
+# Table name: hits
+#
+#  id          :integer(4)      not null, primary key
+#  assigned_to :integer(4)
+#  state       :string(255)
+#  target      :integer(4)
+#  created_at  :datetime
+#  updated_at  :datetime

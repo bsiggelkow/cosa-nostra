@@ -1,5 +1,5 @@
 boss_role = Factory :role, :name => "Boss"
-mobster_role = Factory :role, :name => "Mobsters"
+mobster_role = Factory :role, :name => "Mobster"
 
 bonanno_family = Factory :family, :name => "Bonanno"
 gambino_family = Factory :family, :name => "Gambino"

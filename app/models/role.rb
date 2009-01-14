@@ -5,3 +5,13 @@ class Role < ActiveRecord::Base
     return permissions.map(&:name).include?(name)
   end
 end
+
+# == Schema Info
+# Schema version: 20090114013851
+#
+# Table name: roles
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime

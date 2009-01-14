@@ -72,3 +72,13 @@ def random_string
   10.times { random_string_for_uniqueness += letters[rand(letters.size - 1)]}
   random_string_for_uniqueness
 end
+
+# == Schema Info
+# Schema version: 20090114013851
+#
+# Table name: user_statuses
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime

@@ -1,6 +1,17 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
+  table_has_columns(User, :string, "first_name")
+  table_has_columns(User, :string, "last_name")
+  table_has_columns(User, :string, "nickname")
+  table_has_columns(User, :integer, "role_id")
+  table_has_columns(User, :integer, "user_status_id")
+  table_has_columns(User, :integer, "family_id")
+  
+  requires_presence_of User, :role
+  requires_presence_of User, :family
+  requires_presence_of User, :first_name
+  requires_presence_of User, :last_name
   
   describe "alive?" do
     before(:each) do
@@ -23,7 +34,7 @@ describe User do
       @user.deceased?.should be_true
     end
   end
-  
+
   describe "named_scopes" do
     before(:each) do
       @living = Factory :user_status, :name => "Alive"
@@ -97,3 +108,25 @@ describe User do
     end
   end
 end
+
+
+# == Schema Info
+# Schema version: 20090114013851
+#
+# Table name: users
+#
+#  id                        :integer(4)      not null, primary key
+#  family_id                 :integer(4)
+#  role_id                   :integer(4)
+#  user_status_id            :integer(4)
+#  confirmation_code         :string(255)
+#  confirmed                 :boolean(1)      not null
+#  crypted_password          :string(40)
+#  email                     :string(255)
+#  first_name                :string(255)
+#  last_name                 :string(255)
+#  nickname                  :string(255)
+#  remember_token            :string(255)
+#  reset_password_code       :string(255)
+#  salt                      :string(40)
+#  remember_token_expires_at :datetime
