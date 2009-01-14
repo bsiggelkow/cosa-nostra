@@ -2,4 +2,7 @@
 
 %table
   %tr
-    %td
+    %td Name
+  - @families.each do |family|
+    %tr
+      %td= family.name
