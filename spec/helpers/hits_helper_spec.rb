@@ -15,17 +15,27 @@ describe HitsHelper do
         @target = stub_model(User)
       end
       
-      it "should return true if target has no hits issued on them" do
-        @target.expects(:alive?).returns(true)
-        @target.expects(:target_hits).returns([])
-        helper.can_issue_hit(@current_user, @target).should be_true
-      end
+      describe "when target is from a different family" do
+        
+        before(:each) do
+          @capone = stub_model(Family, :name => "Capone")
+          @gotti = stub_model(Family, :name => "Gotti")
+        end
       
-      it "should return false if targte has a hit issued on them" do
-        @target.expects(:target_hits).returns(["test"])
-        helper.can_issue_hit(@current_user, @target).should be_false
-      end
+        it "should return true if target has no hits issued on them" do
+          @current_user.expects(:family).returns(@capone)
+          @target.expects(:family).returns(@gotti)
+          @target.expects(:alive?).returns(true)
+          @target.expects(:target_hits).returns([])
+          helper.can_issue_hit(@current_user, @target).should be_true
+        end
       
+        it "should return false if targte has a hit issued on them" do
+          @target.expects(:target_hits).returns(["test"])
+          helper.can_issue_hit(@current_user, @target).should be_false
+        end
+      
+      end
     end
     
     describe "when target is dead" do
@@ -39,6 +49,22 @@ describe HitsHelper do
         @target.expects(:target_hits).returns([])
         helper.can_issue_hit(@current_user, @target).should be_false
       end
+    end
+    
+    describe "when target is from the same family" do
+      
+      before(:each) do
+        @capone = stub_model(Family, :name => "Capone")
+      end
+      
+      it "should return false at all times" do
+        @current_user.expects(:family).returns(@capone)
+        @target.expects(:family).returns(@capone)
+        @target.expects(:alive?).returns(true)
+        @target.expects(:target_hits).returns([])
+        helper.can_issue_hit(@current_user, @target).should be_false
+      end
+      
     end
       
   end

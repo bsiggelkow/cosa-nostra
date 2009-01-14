@@ -16,5 +16,5 @@
       %td= user.nickname
       %td= user.last_name
       %td= user.role.name
-      %td= user.user_status.name
+      %td= status(user)
       %td= render :partial => "/hits/actions", :locals => { :target => user }
