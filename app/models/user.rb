@@ -1,36 +1,34 @@
 class User < ActiveRecord::Base
   include Clearance::App::Models::User
   
-  attr_accessible :first_name, :last_name, :nickname
+  attr_accessible :first_name, :last_name, :nickname, :state
   
   validates_presence_of :first_name, :last_name, :role, :family
   
   belongs_to :family
   belongs_to :role
-  belongs_to :user_status
-  
+
   has_many :target_hits, :foreign_key => "target_id", :class_name => "Hit"
   has_many :assigned_hits, :foreign_key => "assigned_to"
   
+  acts_as_state_machine :initial => :alive
+  
+  state :alive 
+  state :deceased 
+  
+  event :kill do
+    transitions :from => :alive, :to => :deceased, :on_transition => :save_killed_by
+  end
+
   named_scope :alive, 
-    :conditions => ["user_statuses.id = users.user_status_id AND user_statuses.name = 'Alive'"], 
-    :include => :user_status
+    :conditions => {:state => 'alive'} 
     
   named_scope :deceased, 
-    :conditions => ["user_statuses.id = users.user_status_id AND user_statuses.name = 'Deceased'"], 
-    :include => :user_status
+    :conditions => {:state => "deceased"}
     
   named_scope :ranked, 
-    :order => "roles.name, user_statuses.name ASC", 
-    :include => [:user_status, :role]
-    
-  def alive?
-    return user_status.name == UserStatus.alive
-  end
-  
-  def deceased?
-    return user_status.name == UserStatus.deceased
-  end
+    :order => "roles.name, state ASC", 
+    :include => [:role]
   
   def has_permission?(name)
     return role.has_permission?(name)

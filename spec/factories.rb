@@ -9,7 +9,6 @@ Factory.define :user do |user|
   user.confirmed true
   user.association(:role)
   user.association(:family)
-  user.association(:user_status)
 end
 
 Factory.define :boss do |user|
@@ -21,7 +20,6 @@ Factory.define :boss do |user|
   user.confirmed true
   user.association(:boss_role)
   user.association(:family)
-  user.association(:user_status)
 end
 
 Factory.define :mobster do |user|
@@ -33,7 +31,6 @@ Factory.define :mobster do |user|
   user.confirmed true
   user.association(:mobster_role)
   user.association(:family)
-  user.association(:user_status)
 end
 
 Factory.define :permission do |permission|
@@ -57,10 +54,6 @@ Factory.define :mobster_role do |role|
   role.name "mobster"
 end
 
-Factory.define :user_status do |user_status|
-  user_status.name "Alive"
-end
-
 Factory.define :hit do |hit|
   hit.association(:target)
   hit.association(:assigned_to)
@@ -75,7 +68,6 @@ Factory.define :assigned_to do |user|
   user.confirmed true
   user.association(:role)
   user.association(:family)
-  user.association(:user_status)
 end
 
 Factory.define :target do |user|
@@ -87,7 +79,6 @@ Factory.define :target do |user|
   user.confirmed true
   user.association(:role)
   user.association(:family)
-  user.association(:user_status)
 end
 
 def random_email_address

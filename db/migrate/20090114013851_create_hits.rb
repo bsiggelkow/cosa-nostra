@@ -1,5 +1,4 @@
-class CreateHits < ActiveRecord::Migration
-  
+class CreateHits < ActiveRecord::Migration  
   def self.up
     create_table :hits do |t|
       t.integer :assigned_to_id
@@ -11,6 +10,5 @@ class CreateHits < ActiveRecord::Migration
 
   def self.down
     drop_table :hits
-  end
-  
+  end 
 end

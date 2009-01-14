@@ -9,7 +9,7 @@ class Hit < ActiveRecord::Base
   
   state :unassigned
   state :assigned
-  state :completed, :after => Proc.new { |hit| hit.target.user_status.name = UserStatus.deceased }
+  state :completed, :after => Proc.new { |hit| hit.target.kill! }
   state :failed
   
   event :accept do
