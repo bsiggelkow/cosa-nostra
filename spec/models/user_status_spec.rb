@@ -4,9 +4,8 @@ describe UserStatus do
     
 end
 
-
 # == Schema Info
-# Schema version: 20090114001127
+# Schema version: 20090114004000
 #
 # Table name: user_statuses
 #

@@ -10,3 +10,15 @@ describe Permission do
     Permission.create!(@valid_attributes)
   end
 end
+
+
+# == Schema Info
+# Schema version: 20090114004000
+#
+# Table name: permissions
+#
+#  id         :integer(4)      not null, primary key
+#  role_id    :integer(4)
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime

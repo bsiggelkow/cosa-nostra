@@ -1,12 +1,9 @@
 class Family < ActiveRecord::Base
-  
   has_many :users
-  
 end
 
-
 # == Schema Info
-# Schema version: 20090112233422
+# Schema version: 20090114004000
 #
 # Table name: families
 #
