@@ -2,6 +2,7 @@ class Hit < ActiveRecord::Base
   
   belongs_to :target, :class_name => "User", :foreign_key => "target_id"
   belongs_to :assigned_to, :class_name => "User", :foreign_key => "assigned_to_id"
+  belongs_to :hit_method
   
   acts_as_state_machine :initial => :unassigned
   

@@ -81,6 +81,10 @@ Factory.define :target do |user|
   user.association(:family)
 end
 
+Factory.define :hit_method do |hit_method|
+  hit_method.name "Method"
+end
+
 def random_email_address
   "#{random_string}@example.com"
 end

@@ -1,7 +1,10 @@
 = form.error_messages
 .text_field
+  == Target: #{@hit.target.full_name}
+  = form.hidden_field :target_id, :value => @hit.target.id
+.text_field
   = form.label :deadline
   = date_select(:hit, :deadline)
 .select_field
-  = form.label :hit_method
-  = select @hit, :hit_method, Role.all.collect {|role| [ role.name, role.id ] }
+  Hit Method
+  = select "hit", :hit_method, HitMethod.all.collect {|hit_method| [ hit_method.name, hit_method.id ] }

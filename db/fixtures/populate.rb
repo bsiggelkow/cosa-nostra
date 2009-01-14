@@ -9,6 +9,12 @@ accept_hit_permission = Factory :permission, :name => "Accept Hit", :role => mob
 completed_hit_permission = Factory :permission, :name => "Hit Completed", :role => mobster_role
 fail_hit_permission = Factory :permission, :name => "Hit Failed", :role => mobster_role
 
+shooting = Factory :hit_method, :name => "Shoot"
+stabbing = Factory :hit_method, :name => "Stab"
+drowning = Factory :hit_method, :name => "Drown"
+poisoned = Factory :hit_method, :name => "Poison"
+beat_down = Factory :hit_method, :name => "Beat Down"
+
 # Bonanno Family Members boss - Vincent Basciano
 Factory :user, 
         :first_name => "Vincent",
