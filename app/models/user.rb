@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   include Clearance::App::Models::User
   
-  attr_accessible :first_name, :last_name
+  attr_accessible :first_name, :last_name, :nickname
   
   validates_presence_of :first_name, :last_name, :role, :family
   
