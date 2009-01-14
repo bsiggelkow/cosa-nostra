@@ -1,14 +1,24 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Role do
-  before(:each) do
-    @valid_attributes = {
-    }
-  end
 
-  it "should create a new instance given valid attributes" do
-    Role.create!(@valid_attributes)
+  describe "has_permission?" do
+    
+    before(:each) do
+      @role = Role.new
+      @role.permissions.build(:name => "Test")
+    end
+    
+    it "should return true if the role contains the supplied permission" do
+      @role.has_permission?("Test").should be_true
+    end
+    
+    it "should return false if the role does not contain the permission" do
+      @role.has_permission?("Testing").should be_false
+    end
+    
   end
+  
 end
 
 
