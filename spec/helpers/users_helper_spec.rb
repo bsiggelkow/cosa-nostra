@@ -6,16 +6,13 @@ describe UsersHelper do
     
     describe "when user is alive" do
       before(:each) do
-        @status = stub_model(UserStatus)
-        @status.expects(:name).at_least(1).returns("Test")
         @user = stub_model(User)
-        @user.user_status = @status
         @user.expects(:alive?).returns(true)
-        @user.expects(:current_status).returns(@status)
+        @user.expects(:state).returns("Test")
       end
       
       it "should return the user status" do
-        helper.status(@user).should == @user.current_status.name
+        helper.status(@user).should == "Test"
       end
     end
     
