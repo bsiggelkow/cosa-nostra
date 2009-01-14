@@ -42,4 +42,23 @@ describe HitsController do
     end
   end
   
+  
+  describe "accept" do
+    it "should call accept on the hit"
+    it "should assign the current user to the hit"
+  end
+
+  describe "complete" do
+    it "should call complete on the hit"
+  end
+  
+  describe "fail" do
+    it "should call fail on the hit"
+  end
+  
+  describe "reassign" do
+    it "should call reassign on the hit"
+  end
+  
+  
 end
