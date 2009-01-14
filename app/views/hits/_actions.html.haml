@@ -12,3 +12,6 @@
 /   
 / - if can_reassign_hit(current_user, target)
 /   = link_to "Reassign Hit", ""
+
+- if can_take_no_action(current_user, target)
+  = target.hit.state

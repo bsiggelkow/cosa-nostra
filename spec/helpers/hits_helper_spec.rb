@@ -2,6 +2,41 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe HitsHelper do
   
+  describe "can_take_no_action" do
+    
+    describe "when target is alive" do
+      
+      describe "when target has no hit" do
+        
+      end
+      
+      describe "when target has a hit" do
+        
+        describe "when hit is unassigned" do
+          
+        end
+        
+        describe "when hit is assigned" do
+          
+        end
+        
+        describe "when hit is complete" do
+          
+        end
+        
+        describe "when hit is failed" do
+          
+        end
+        
+      end
+      
+    end
+    
+    describe "when target is deceased" do
+      
+    end
+  end
+  
   describe "can_issue_hit" do
     
     before(:each) do
