@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   state :deceased 
   
   event :kill do
-    transitions :from => :alive, :to => :deceased, :on_transition => :save_killed_by
+    transitions :from => :alive, :to => :deceased
   end
 
   named_scope :alive, 

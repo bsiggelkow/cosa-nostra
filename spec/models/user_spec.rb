@@ -51,7 +51,9 @@ describe User do
     
     it "should change the users state from alive to deceased" do
       @user.alive?.should be_true
-      @user.kill!
+      lambda {
+        @user.kill!
+      }.should change { @user.state }
       @user.deceased?.should be_true
     end
   end
