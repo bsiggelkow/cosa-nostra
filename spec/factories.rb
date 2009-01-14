@@ -12,6 +12,11 @@ Factory.define :user do |user|
   user.association(:user_status)
 end
 
+Factory.define :permission do |permission|
+  permission.name { random_name }
+  permission.association(:role)
+end
+
 Factory.define :family do |family|
   family.name { random_name }
 end
@@ -67,13 +72,3 @@ def random_string
   10.times { random_string_for_uniqueness += letters[rand(letters.size - 1)]}
   random_string_for_uniqueness
 end
-
-# == Schema Info
-# Schema version: 20090114001127
-#
-# Table name: user_statuses
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime

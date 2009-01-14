@@ -1,9 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
-  
   describe "named_scopes" do
-    
     before(:each) do
       @living = Factory :user_status, :name => "Alive"
       @deceased = Factory :user_status, :name => "Deceased"
@@ -15,23 +13,18 @@ describe User do
     end
     
     describe "alive" do
-  
       it "should return all living users" do
         User.alive.count.should == 3
       end
-      
     end
     
     describe "deceased" do
-      
       it "should return all deceased users" do
         User.deceased.count.should == 2
       end
-      
     end
     
     describe "ranked" do
-      
       before(:each) do
         @users = User.ranked
       end
@@ -55,13 +48,10 @@ describe User do
         @users.last.role.name.should == "Mobsters"
         @users.last.user_status.name.should == "Deceased"
       end
-      
     end
-    
   end
   
   describe "validation" do
-    
     before(:each) do
       @user = User.new
       @user.valid?
@@ -82,27 +72,5 @@ describe User do
     it "should require a family" do
       @user.errors.should be_invalid(:family)
     end
-    
   end
-
 end
-
-# == Schema Info
-# Schema version: 20090114001127
-#
-# Table name: users
-#
-#  id                        :integer(4)      not null, primary key
-#  family_id                 :integer(4)
-#  role_id                   :integer(4)
-#  confirmation_code         :string(255)
-#  confirmed                 :boolean(1)      not null
-#  crypted_password          :string(40)
-#  email                     :string(255)
-#  first_name                :string(255)
-#  last_name                 :string(255)
-#  remember_token            :string(255)
-#  reset_password_code       :string(255)
-#  salt                      :string(40)
-#  user_status               :integer(4)
-#  remember_token_expires_at :datetime

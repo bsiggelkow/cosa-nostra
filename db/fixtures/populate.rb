@@ -4,6 +4,10 @@ mobster_role = Factory :role, :name => "Mobsters"
 bonanno_family = Factory :family, :name => "Bonanno"
 gambino_family = Factory :family, :name => "Gambino"
 
+issue_hit_permission = Factory :permission, :name => "issue_hit", :role => boss_role
+accept_hit_permission = Factory :permission, :name => "accept_hit", :role => mobster_role
+fail_hit_permission = Factory :permission, :name => "fail_hit", :role => mobster_role
+
 # Bonanno Family Members boss - Vincent Basciano
 Factory :user, 
         :first_name => "Vincent",
@@ -243,7 +247,4 @@ Factory :user,
         :password_confirmation => "password", 
         :role => mobster_role, 
         :family => gambino_family
-
-
-
 
