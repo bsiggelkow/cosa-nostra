@@ -1,2 +1,14 @@
-- if current_user.has_permission?("Issue Hit") && target.hits.empty? && target.alive?
+- if can_issue_hit(current_user, target)
   = link_to "Issue Hit", ""
+  
+/ - if can_accept_hit(current_user, target)
+/   = link_to "Accept Hit", ""
+/   
+/ - if can_complete_hit(current_user, target)
+/   = link_to "Hit Completed", ""
+/   
+/ - if can_fail_hit(current_user, target)
+/   = link_to "Hit Failed", ""
+/   
+/ - if can_reassign_hit(current_user, target)
+/   = link_to "Reassign Hit", ""

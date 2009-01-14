@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :user_status
   
+  has_many :target_hits, :foreign_key => "target_id", :class_name => "Hit"
+  has_many :assigned_hits, :foreign_key => "assigned_to"
+  
   named_scope :alive, 
     :conditions => ["user_statuses.id = users.user_status_id AND user_statuses.name = 'Alive'"], 
     :include => :user_status
