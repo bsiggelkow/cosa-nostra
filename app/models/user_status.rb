@@ -1,16 +1,11 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+class UserStatus < ActiveRecord::Base
+end
 
 
 # == Schema Info
 # Schema version: 20090114001127
 #
-# Table name: roles
+# Table name: user_statuses
 #
 #  id         :integer(4)      not null, primary key
 #  name       :string(255)

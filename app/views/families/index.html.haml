@@ -3,6 +3,10 @@
 %table
   %tr
     %td Name
+    %td Living Members
+    %td Deceased Members
   - @families.each do |family|
     %tr
-      %td= family.name
+      %td= link_to family.name, family_path(family)
+      %td= family.users.alive.count
+      %td= family.users.deceased.count

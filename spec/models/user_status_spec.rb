@@ -1,16 +1,14 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+describe UserStatus do
+    
+end
 
 
 # == Schema Info
 # Schema version: 20090114001127
 #
-# Table name: roles
+# Table name: user_statuses
 #
 #  id         :integer(4)      not null, primary key
 #  name       :string(255)

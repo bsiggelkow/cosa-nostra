@@ -1,0 +1,18 @@
+%h3= @family.name
+
+%h5 Family Members
+
+%table
+  %tr
+    %td First Name
+    %td Nick Name
+    %td Last Name
+    %td Role
+    %td Status
+  - @family.users.ranked.each do |user|
+    %tr
+      %td= user.first_name
+      %td
+      %td= user.last_name
+      %td= user.role.name
+      %td= user.user_status.name

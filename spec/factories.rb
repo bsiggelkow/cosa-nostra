@@ -9,6 +9,7 @@ Factory.define :user do |user|
   user.confirmed true
   user.association(:role)
   user.association(:family)
+  user.association(:user_status)
 end
 
 Factory.define :family do |family|
@@ -17,6 +18,10 @@ end
 
 Factory.define :role do |role|
   role.name { random_name }
+end
+
+Factory.define :user_status do |status|
+  status.name "Alive"
 end
 
 def random_email_address
@@ -35,19 +40,11 @@ def random_string
 end
 
 # == Schema Info
-# Schema version: 20090112233422
+# Schema version: 20090114001127
 #
-# Table name: users
+# Table name: user_statuses
 #
-#  id                        :integer(4)      not null, primary key
-#  family_id                 :integer(4)
-#  confirmation_code         :string(255)
-#  confirmed                 :boolean(1)      not null
-#  crypted_password          :string(40)
-#  email                     :string(255)
-#  first_name                :string(255)
-#  last_name                 :string(255)
-#  remember_token            :string(255)
-#  reset_password_code       :string(255)
-#  salt                      :string(40)
-#  remember_token_expires_at :datetime
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
