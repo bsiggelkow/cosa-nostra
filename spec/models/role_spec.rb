@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Role do
-
+  table_has_columns(Role, :string, "name")
+  
   describe "has_permission?" do
-    
     before(:each) do
       @role = Role.new
       @role.permissions.build(:name => "Test")
@@ -16,13 +16,11 @@ describe Role do
     it "should return false if the role does not contain the permission" do
       @role.has_permission?("Testing").should be_false
     end
-    
   end
-  
 end
 
 # == Schema Info
-# Schema version: 20090114004000
+# Schema version: 20090114013851
 #
 # Table name: roles
 #

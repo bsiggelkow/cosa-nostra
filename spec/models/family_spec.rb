@@ -1,11 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Family do
-  
+  table_has_columns(Family, :string, "name")
 end
 
 # == Schema Info
-# Schema version: 20090114004000
+# Schema version: 20090114013851
 #
 # Table name: families
 #
