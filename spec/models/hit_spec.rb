@@ -18,6 +18,18 @@ describe Hit do
       end
     end
     
+    describe "assign" do
+      before(:each) do
+        @user = stub_model(User)
+      end
+      
+      it "should accept and assign the user to the hit" do
+        @hit.assign(@user)
+        @hit.assigned?.should be_true
+        @hit.assigned_to.should == @user
+      end
+    end
+    
     describe "complete" do
       it "should transition from assigned to completed" do
         @hit.state = "assigned"

@@ -6,11 +6,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :has_one => :confirmation
   map.resources :passwords
   map.resources :families
-  map.resources :hits, :members => {
-    :accept => :get,
-    :complete => :get,
-    :fail => :get,
-    :reassign => :get
+  map.resources :hits, :member => {
+    :accept => :post,
+    :complete => :post,
+    :fail => :post,
+    :reassign => :post
   }
   
   map.root :controller => 'sessions', :action => 'new'

@@ -44,20 +44,45 @@ describe HitsController do
   
   
   describe "accept" do
-    it "should call accept on the hit"
-    it "should assign the current user to the hit"
+    before(:each) do
+      @user = stub_model(User)
+      @hit = stub_model(Hit)
+      @params = { :id => "1" }
+      Hit.expects(:find_by_id).with("1").returns(@hit)
+    end
+    
+    it "should call assign on the hit" do
+      controller.expects(:current_user).returns(@user)
+      @hit.expects(:assign).with(@user)
+      post :accept, @params
+    end
+    
   end
 
   describe "complete" do
-    it "should call complete on the hit"
+    before(:each) do
+      @hit = stub_model(Hit, :state => "accepted")
+      @params = { :id => "1" }
+      Hit.expects(:find_by_id).with("1").returns(@hit)
+    end
+    
+    it "should call complete on the hit" do
+      @hit.expects(:complete!)
+      post :complete, @params
+    end
   end
   
   describe "fail" do
-    it "should call fail on the hit"
-  end
-  
-  describe "reassign" do
-    it "should call reassign on the hit"
+    before(:each) do
+      @hit = stub_model(Hit, :state => "accepted")
+      @params = { :id => "1" }
+      Hit.expects(:find_by_id).with("1").returns(@hit)
+    end
+    
+    it "should call fail on the hit" do
+      @hit.expects(:fail!)
+      post :fail, @params
+    end
   end
   
   

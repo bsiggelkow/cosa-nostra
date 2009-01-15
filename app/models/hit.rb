@@ -11,7 +11,7 @@ class Hit < ActiveRecord::Base
   state :completed, :after => Proc.new { |hit| hit.target.kill! }
   state :failed
   
-  event :accept do
+  event :accept do 
     transitions :from => :unassigned, :to => :assigned
   end
   
@@ -25,6 +25,11 @@ class Hit < ActiveRecord::Base
   
   event :reassign do
     transitions :from => :failed, :to => :assigned
+  end
+  
+  def assign(user)
+    accept!
+    update_attribute(:assigned_to, user)
   end
   
 end
