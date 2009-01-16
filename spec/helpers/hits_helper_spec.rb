@@ -3,6 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe HitsHelper do
   
   describe "can_fail_hit?" do
+    # current_user.has_permission?("Hit Failed") && target.alive? && target.target_hits.any? 
+    # && target.target_hit.assigned? && target.target_hit.assigned_to == current_user
     
     before(:each) do
       @current_user = stub_model(User)
@@ -12,12 +14,23 @@ describe HitsHelper do
     describe "when target is alive" do
       
       before(:each) do
-        @target = stub_model(User)
+        @target_family = stub_model(Family, :name => "Gambino")
+        @target = stub_model(User, :family  => @target_family)
+
       end
       
       describe "when current user is assigned to the hit" do
-        it "should return true if target has a hit issued on them in assigned state"
-        it "should return false if target has a hit issued on them not in assigned state"
+        it "should return true if target has a hit issued on them in assigned state" do
+          @target.stubs(:state).returns(:alive)
+          @target.stubs(:target_hits).returns([stub_model(Hit, :state => :assigned, :assigned_to => @current_user)])
+          helper.can_fail_hit?(@current_user,@target).should be_true
+        end
+        
+        it "should return false if target has a hit issued on them not in assigned state" do
+          @target.stubs(:state).returns(:alive)
+          @target.stubs(:target_hits).returns([stub_model(Hit, :state => :unassigned)])
+          helper.can_fail_hit?(@current_user,@target).should be_false
+        end
       end
     end
     
@@ -29,6 +42,7 @@ describe HitsHelper do
   end
   
   describe "can_complete_hit?" do
+    
     
     before(:each) do
       @current_user = stub_model(User)
