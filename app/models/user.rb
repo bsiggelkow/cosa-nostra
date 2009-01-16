@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :target_hits, :foreign_key => "target_id", :class_name => "Hit"
   has_many :assigned_hits, :foreign_key => "assigned_to"
   
+  delegate  :has_permission?, :to => :role
   acts_as_state_machine :initial => :alive
   
   state :alive 
@@ -29,10 +30,6 @@ class User < ActiveRecord::Base
   named_scope :ranked, 
     :order => "roles.name, state ASC", 
     :include => [:role]
-  
-  def has_permission?(name)
-    return role.has_permission?(name)
-  end
   
   def full_name
     "#{first_name} #{last_name}"

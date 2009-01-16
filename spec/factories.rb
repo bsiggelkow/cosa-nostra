@@ -11,28 +11,6 @@ Factory.define :user do |user|
   user.association(:family)
 end
 
-Factory.define :boss do |user|
-  user.email { random_email_address }
-  user.first_name "John"
-  user.last_name "Gotti"
-  user.password "password"
-  user.password_confirmation "password"
-  user.confirmed true
-  user.association(:boss_role)
-  user.association(:family)
-end
-
-Factory.define :mobster do |user|
-  user.email { random_email_address }
-  user.first_name "John"
-  user.last_name "Gotti"
-  user.password "password"
-  user.password_confirmation "password"
-  user.confirmed true
-  user.association(:mobster_role)
-  user.association(:family)
-end
-
 Factory.define :permission do |permission|
   permission.name { random_name }
   permission.association(:role)
