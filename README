@@ -1,1 +1,5 @@
+CosaNostra Rspec Exercise
 
+We have been commissioned by the CosaNostra to write a Rails application to help them manage their "waste". As you might guess the bosses of these families do not take kindly to software which doesn't work properly so you better make sure to test everything else you might be swimming with the fishes.
+
+Luckily for you all someone else already wrote the code.. its just your job to make sure it works. Oh and the bosses are coming by for a demo in an hour.. Good Luck!
