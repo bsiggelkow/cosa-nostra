@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   
+  def target_hit
+    return target_hits.first
+  end
+  
 end
 
 
