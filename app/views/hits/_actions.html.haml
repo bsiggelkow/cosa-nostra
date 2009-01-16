@@ -9,6 +9,3 @@
   
 - if can_fail_hit?(current_user, target)
   = link_to "Hit Failed", fail_hit_path(target.target_hit.id)
-
-/ - if can_take_no_action(current_user, target)
-/   = target.hit.state
