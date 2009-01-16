@@ -5,7 +5,7 @@ describe Family do
 end
 
 # == Schema Info
-# Schema version: 20090114013851
+# Schema version: 20090114222108
 #
 # Table name: families
 #

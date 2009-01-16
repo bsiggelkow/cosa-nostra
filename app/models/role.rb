@@ -7,7 +7,7 @@ class Role < ActiveRecord::Base
 end
 
 # == Schema Info
-# Schema version: 20090114013851
+# Schema version: 20090114222108
 #
 # Table name: roles
 #
