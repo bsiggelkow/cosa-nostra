@@ -23,7 +23,16 @@ describe HitsController do
   end
   
   describe "create" do
-    it "should create the new hit"
+    before(:each) do
+      @hit_method = stub_model(HitMethod)
+      @params = { :hit => @hit_method }
+    end
+        
+    it "should create the new hit" do
+      Hit.expects(:create).returns(@hit)
+      get :create, @params
+    end
+    
     it "should redirect to the family detail page of the target"
   end
   
