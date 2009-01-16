@@ -12,10 +12,7 @@ describe Hit do
     end
     
     describe "accept" do
-      it "should transition from unassigned to assigned" do
-        @hit.accept!
-        @hit.assigned?.should be_true
-      end
+      it "should transition from unassigned to assigned"
     end
     
     describe "assign" do
@@ -23,41 +20,20 @@ describe Hit do
         @user = stub_model(User)
       end
       
-      it "should accept and assign the user to the hit" do
-        @hit.assign(@user)
-        @hit.assigned?.should be_true
-        @hit.assigned_to.should == @user
-      end
+      it "should accept and assign the user to the hit"
     end
     
     describe "complete" do
-      it "should transition from assigned to completed" do
-        @hit.state = "assigned"
-        @hit.complete!
-        @hit.completed?.should be_true
-      end
-      
-      it "should set the target user status to deceased" do
-        @hit.state = "assigned"
-        @hit.complete!
-        @hit.target.should be_deceased
-      end
+      it "should transition from assigned to completed"
+      it "should set the target user status to deceased"
     end
     
     describe "fail" do
-      it "should transition from assigned to failed" do
-        @hit.state = "assigned"
-        @hit.fail!
-        @hit.failed?.should be_true
-      end
+      it "should transition from assigned to failed"
     end
     
     describe "reassign" do
-      it "should transition from failed to assigned" do
-        @hit.state = "failed"
-        @hit.reassign!
-        @hit.assigned?.should be_true
-      end
+      it "should transition from failed to assigned"
     end
   end
 end

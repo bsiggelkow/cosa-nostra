@@ -31,11 +31,7 @@ describe "hits/_actions.html.haml" do
           # response.should have_tag('a[href$=?]', new_hit_path(:target_id => @desi.id))
         end
 
-        it "should not have an 'Issue Hit' link when permission to issue hit is false" do
-          template.expects(:can_issue_hit?).at_least(1).returns(false)
-          do_render
-          response.should_not have_tag('a[href=?]', new_hit_path(:target_id => @desi.id))
-        end
+        it "should not have an 'Issue Hit' link when permission to issue hit is false"
       end
     
       describe "and a hit is ready to be accepted" do

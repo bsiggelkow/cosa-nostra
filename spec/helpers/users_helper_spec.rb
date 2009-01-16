@@ -17,19 +17,7 @@ describe UsersHelper do
     end
     
     describe "when user is dead" do
-      before(:each) do
-        @hit = stub_model(Hit)
-        @assigned = stub_model(User)
-        @assigned.expects(:full_name).returns("Test User")
-        @hit.expects(:assigned_to).returns(@assigned)
-        @user = stub_model(User)
-        @user.expects(:alive?).returns(false)
-        @user.expects(:target_hits).returns([@hit])
-      end
-      
-      it "should return the users killer" do
-        helper.status(@user).should == "Killed by Test User"
-      end
+      it "should return the users killer"
     end
     
   end

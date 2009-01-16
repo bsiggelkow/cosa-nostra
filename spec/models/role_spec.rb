@@ -9,13 +9,8 @@ describe Role do
       @role.permissions.build(:name => "Test")
     end
     
-    it "should return true if the role contains the supplied permission" do
-      @role.has_permission?("Test").should be_true
-    end
-    
-    it "should return false if the role does not contain the permission" do
-      @role.has_permission?("Testing").should be_false
-    end
+    it "should return true if the role contains the supplied permission"
+    it "should return false if the role does not contain the permission"
   end
 end
 

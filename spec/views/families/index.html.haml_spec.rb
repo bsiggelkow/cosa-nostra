@@ -25,10 +25,7 @@ describe "/families/index.html.haml" do
     do_render
   end
   
-  it "should have a heading" do
-    do_render
-    response.should have_tag('h3', "Family List")
-  end
+  it "should have a heading"
   
   it "should have the families names" do
     do_render
@@ -43,19 +40,8 @@ describe "/families/index.html.haml" do
     response.should have_tag('a[href=?]', family_path(@jordan))
   end
   
-  it "should have a count of the alive members for one family" do
-    do_render
-    response.should have_tag('tr') {
-      with_tag('td', "2")
-    }
-  end
-  
-  it "should have a count of the deceased members for one family" do
-    do_render
-    response.should have_tag('tr') {
-      with_tag('td', "3")
-    }
-  end
+  it "should have a count of the alive members for one family"
+  it "should have a count of the deceased members for one family"
 
   def do_render
     render '/families/index.html.haml'

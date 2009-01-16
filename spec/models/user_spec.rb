@@ -3,32 +3,16 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe User do
   # the next few are macros defined in your spec_helper.rb file
   table_has_columns(User, :string, "first_name")
-  table_has_columns(User, :string, "last_name")
-  table_has_columns(User, :string, "nickname")
-  table_has_columns(User, :integer, "role_id")
-  table_has_columns(User, :integer, "family_id")
-  
   requires_presence_of User, :role
-  requires_presence_of User, :family
-  requires_presence_of User, :first_name
-  requires_presence_of User, :last_name
 
   # these matchers come from the rspec-on-rails-matchers plugin
   it "should belong to a family" do
     User.should belong_to(:family)
   end
   
-  it "should belong to a role" do
-    User.should belong_to(:role)
-  end
-  
-  it "should have many target_hits" do
-    User.should have_many(:target_hits)
-  end
-  
-  it "should have many assigned_hits" do
-    User.should have_many(:assigned_hits)
-  end
+  it "should belong to a role"
+  it "should have many target_hits"
+  it "should have many assigned_hits"
   
   # normal rspec testing to follow
   describe "target_hit" do
@@ -36,16 +20,7 @@ describe User do
   end
   
   describe "has_permission?" do
-    before(:each) do
-      @role = stub_model(Role)
-      @user = User.new
-      @user.role = @role
-    end
-    
-    it "should delegate to the role" do
-      @role.expects(:has_permission?).with("Test").returns(true)
-      @user.has_permission?("Test").should be_true
-    end
+    it "should delegate to the role"
   end
   
   describe "kill!" do
@@ -63,24 +38,11 @@ describe User do
   end
   
   describe "alive?" do
-    before(:each) do
-      @user = Factory :user
-    end
-    
-    it "should return true if user status is alive" do
-      @user.alive?.should be_true
-    end
+    it "should return true if user status is alive"
   end
   
   describe "deceased?" do
-    before(:each) do
-      @user = Factory :user
-      @user.kill!
-    end
-    
-    it "should return true if user status is deceased" do
-      @user.deceased?.should be_true
-    end
+    it "should return true if user status is deceased"
   end
 
   describe "named_scopes" do
@@ -93,15 +55,11 @@ describe User do
     end
     
     describe "alive" do
-      it "should return all living users" do
-        User.alive.count.should == 3
-      end
+      it "should return all living users"
     end
     
     describe "deceased" do
-      it "should return all deceased users" do
-        User.deceased.count.should == 2
-      end
+      it "should return all deceased users"
     end
     
     describe "ranked" do
@@ -114,21 +72,11 @@ describe User do
         @users.first.should be_alive
       end
       
-      it "should sort deceased bosses second" do
-        @users[1].role.name.should == "Boss"
-        @users[1].should be_deceased
-      end
-      
-      it "should sort living wise guys third" do
-        @users[2].role.name.should == "Mobsters"
-        @users[2].should be_alive
-      end
-      
-      it "should sort deceased wise guys last" do
-        @users.last.role.name.should == "Mobsters"
-        @users.last.should be_deceased
-      end
+      it "should sort deceased bosses second"
+      it "should sort living wise guys third"
+      it "should sort deceased wise guys last"
     end
+    
   end
   
   describe "validation" do
@@ -143,17 +91,9 @@ describe User do
       @user.should have(1).error_on(:first_name)
     end
     
-    it "should require a last name" do
-      @user.errors.should be_invalid(:last_name)
-    end
-    
-    it "should require a role" do
-      @user.errors.should be_invalid(:role)
-    end
-    
-    it "should require a family" do
-      @user.errors.should be_invalid(:family)
-    end
+    it "should require a last name"
+    it "should require a role"
+    it "should require a family"
   end
 end
 
