@@ -11,9 +11,15 @@ describe HitsController do
     before(:each) do
       @hit = stub_model(Hit)
       @target = stub_model(User)
+      @params = { :target_id => "1" }
     end
     
-    it "should set the target on the hit" 
+    it "should set the correct target on the hit" do
+      Hit.expects(:new).returns(@hit)
+      User.expects(:find_by_id).with("1").returns(@target)
+      get :new, @params
+      @hit.target.should == @target
+    end
   end
   
   describe "create" do
