@@ -31,6 +31,10 @@ describe User do
   end
   
   # normal rspec testing to follow
+  describe "target_hit" do
+    it "should return the first target hit"
+  end
+  
   describe "has_permission?" do
     before(:each) do
       @role = stub_model(Role)
