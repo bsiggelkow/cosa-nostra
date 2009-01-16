@@ -2,13 +2,13 @@
   = link_to "Issue Hit", new_hit_path(:target_id => target.id)
   
 - if can_accept_hit?(current_user, target)
-  = link_to "Accept Hit", accept_hit_path(target.target_hit)
+  = link_to "Accept Hit", accept_hit_path(target.target_hit.id)
   
 - if can_complete_hit?(current_user, target)
-  = link_to "Hit Completed", complete_hit_path(target.target_hit)
+  = link_to "Hit Completed", complete_hit_path(target.target_hit.id)
   
 - if can_fail_hit?(current_user, target)
-  = link_to "Hit Failed", fail_hit_path(target.target_hit)
+  = link_to "Hit Failed", fail_hit_path(target.target_hit.id)
 
 / - if can_take_no_action(current_user, target)
 /   = target.hit.state

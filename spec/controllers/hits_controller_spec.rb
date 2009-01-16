@@ -54,7 +54,7 @@ describe HitsController do
     it "should call assign on the hit" do
       controller.expects(:current_user).returns(@user)
       @hit.expects(:assign).with(@user)
-      post :accept, @params
+      get :accept, @params
     end
     
   end
@@ -68,7 +68,7 @@ describe HitsController do
     
     it "should call complete on the hit" do
       @hit.expects(:complete!)
-      post :complete, @params
+      get :complete, @params
     end
   end
   
@@ -81,7 +81,7 @@ describe HitsController do
     
     it "should call fail on the hit" do
       @hit.expects(:fail!)
-      post :fail, @params
+      get :fail, @params
     end
   end
   
