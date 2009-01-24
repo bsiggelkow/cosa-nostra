@@ -5,6 +5,9 @@ We have been commissioned by the CosaNostra to write a Rails application to help
 
 Luckily for you all someone else already wrote the code.. its just your job to make sure it works. Oh and the bosses are coming by for a demo in an hour.. Good Luck!
 
+General Description of the Application: 
+Basically the bosses want to be able to log into the system, issue hits on other people and then have the mobsters login and pick up those hits. Mobsters can accept hits, complete hits, and fail hits. The full stories are at the bottom. 
+
 Things to know:
 Make sure to change your database.yml file
 
@@ -25,14 +28,143 @@ http://rspec.info/documentation/
 Mocha:
 http://mocha.rubyforge.org/
 
-Committing instructions. Commit often.
-rake spec  (run your tests to make sure your code is good)
-git st
-git add (. or files)  Files that are red need to be added  OR
-git rm <name of files to remove>
-git ci -m "message"
-git pull --rebase 
-rake spec (this is to form a habit, run your tests after a pull to make sure any changes that came in didn't break something)
-git push (To push your changes up)
+Stories:
+As a user who logs in I would like to be able to see a list of families that I can view with details about the family.
+
+Acceptance Criteria:
+On login there should be a list of families
+Each family name should link to the family detail page. 
+Each family row should have a count of the number of family members Alive
+Each family row should have a count of the number of family members Deceased
+As a boss on the Families List Page, I need to be able to view a Family in detail, so that I can have more information about them and take actions relating to the family.
+
+*AC:*
+- Boss can navigate to the family detail page from the families list.
+- Members of the family are listed with the following sort rules:
+ _ 1) Boss (Alive)
+  2) Most recently killed boss ... Least recently killed boss
+  3) Wise guys (Alive)
+  4) Wise guys (Dead)_
+- Members show their full name, role, and status in the list
+- If looking at family detail for other family an "Issue Hit" button should be present next to all alive family members
+- If the person is dead it should show who killed them so killed by Salvator Gambini
+- If boss is viewing his own family then he should not see any hits issued on his family members he can only see hits he/or old boss has issued on other families members
+
+
+As a Wise Guy on the Families List Page, I need to be able to view a Family in detail, so that I can have more information about them and take actions relating to the family.
+
+AC:
+- Wise Guy can navigate to the family detail page from the families list.
+- Members of the family are listed with the following sort rules:
+1) Boss (Alive)
+2) Most recently killed boss ... Least recently killed boss
+3) Wise guys (Alive)
+4) Wise guys (Dead)
+- Members show their full name, role, and status in the list
+- If the person is dead it should show who killed them so killed by Salvator Gambini
+- If I am looking at a family other than my own there should be an "Accept Hit" button next to any individual who my boss has issued a hit on and is not currently being worked on.
+- I should not see any hits issued on my family members only hits issued against another family
+As a boss on the Family Detail Page, I need to be able to issue a hit on any family member, so that I can have them killed.
+
+*AC:*
+- Issue Hit button appears next to the family member's name if they are alive and no hit has already been issued.
+- Upon issuing a hit on a family member, that member's status changes to "Hit Issued"
+- Boss selects deadline for the hit
+- Boss selects Method of Death to the person being hit from the following list:
+_
+1) Shooting
+2) Stabbing
+3) Drowning
+4) Poisoned
+5) Beat Down
+_
+As a Wise Guy on the Family Detail Page, I need to be able to complete a hit so that the boss can know the person was killed.
+
+*AC:*
+- Wise guys marks hit as complete
+- Persons status is changed to deaceased
+As a Wise Guy on the Family Details Page, I want to be able to accept a hit so that I can kill that person for the boss.
+
+*AC:*
+- Accept Hit button appears next to the family member's name if they are alive and a hit has been issued on them.
+- Upon accepting the hit on a family member, that hit belongs to the wise guy
+- A wise guy can have multiple accepted hits at a time
+- Complete Hit and Failed Hit buttons appear next to the family member's name for the Wise guy who accepted (only)
+- Hit in progress text appears next to the family member's name for all other users.
+As a Wise Guy on the Family Detail Page, I need to be able to mark a hit as failed  so that the boss can know the person was not killed and take action from there.
+
+AC:
+- Wise guys marks hit as failed
+- Persons status is changed to hit issued.
+- other wise guys can "accept" the hit now.
+As a user who logs in I would like to be able to see a list of families that I can view with details about the family.
+
+Acceptance Criteria:
+On login there should be a list of families
+Each family name should link to the family detail page. 
+Each family row should have a count of the number of family members Alive
+Each family row should have a count of the number of family members Deceased
+As a boss on the Families List Page, I need to be able to view a Family in detail, so that I can have more information about them and take actions relating to the family.
+
+*AC:*
+- Boss can navigate to the family detail page from the families list.
+- Members of the family are listed with the following sort rules:
+ _ 1) Boss (Alive)
+  2) Most recently killed boss ... Least recently killed boss
+  3) Wise guys (Alive)
+  4) Wise guys (Dead)_
+- Members show their full name, role, and status in the list
+- If looking at family detail for other family an "Issue Hit" button should be present next to all alive family members
+- If the person is dead it should show who killed them so killed by Salvator Gambini
+- If boss is viewing his own family then he should not see any hits issued on his family members he can only see hits he/or old boss has issued on other families members
+
+
+As a Wise Guy on the Families List Page, I need to be able to view a Family in detail, so that I can have more information about them and take actions relating to the family.
+
+AC:
+- Wise Guy can navigate to the family detail page from the families list.
+- Members of the family are listed with the following sort rules:
+1) Boss (Alive)
+2) Most recently killed boss ... Least recently killed boss
+3) Wise guys (Alive)
+4) Wise guys (Dead)
+- Members show their full name, role, and status in the list
+- If the person is dead it should show who killed them so killed by Salvator Gambini
+- If I am looking at a family other than my own there should be an "Accept Hit" button next to any individual who my boss has issued a hit on and is not currently being worked on.
+- I should not see any hits issued on my family members only hits issued against another family
+As a boss on the Family Detail Page, I need to be able to issue a hit on any family member, so that I can have them killed.
+
+*AC:*
+- Issue Hit button appears next to the family member's name if they are alive and no hit has already been issued.
+- Upon issuing a hit on a family member, that member's status changes to "Hit Issued"
+- Boss selects deadline for the hit
+- Boss selects Method of Death to the person being hit from the following list:
+_
+1) Shooting
+2) Stabbing
+3) Drowning
+4) Poisoned
+5) Beat Down
+_
+As a Wise Guy on the Family Detail Page, I need to be able to complete a hit so that the boss can know the person was killed.
+
+*AC:*
+- Wise guys marks hit as complete
+- Persons status is changed to deaceased
+As a Wise Guy on the Family Details Page, I want to be able to accept a hit so that I can kill that person for the boss.
+
+*AC:*
+- Accept Hit button appears next to the family member's name if they are alive and a hit has been issued on them.
+- Upon accepting the hit on a family member, that hit belongs to the wise guy
+- A wise guy can have multiple accepted hits at a time
+- Complete Hit and Failed Hit buttons appear next to the family member's name for the Wise guy who accepted (only)
+- Hit in progress text appears next to the family member's name for all other users.
+As a Wise Guy on the Family Detail Page, I need to be able to mark a hit as failed  so that the boss can know the person was not killed and take action from there.
+
+AC:
+- Wise guys marks hit as failed
+- Persons status is changed to hit issued.
+- other wise guys can "accept" the hit now.
+
 
 
