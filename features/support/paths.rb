@@ -10,6 +10,10 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+    when /the list of families/
+      '/families'
+    when /the session page/
+      '/session'
     
     # Add more mappings here.
     # Here is a more fancy example:
