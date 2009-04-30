@@ -1,7 +1,33 @@
-body {
-  background-color: white;
+html {
+  padding: 0.5em;
+  font-family: Trebuchet MS, fantasy;
+  font-size: 2em;
+  background: #EDEBD5;
 }
 
+input {
+  font-family: Trebuchet MS, fantasy;
+  font-size: 1em;  
+}
+
+select {
+  font-family: Trebuchet MS, fantasy;
+  font-size: 1em;  
+}
+
+h1 {
+  background-color: darkred;
+  font-family: Impact;
+  font-color: gray;
+  text-align: center;
+}
+
+/*#container {
+  font-style: Arial;
+  font-color: red;  
+  font-size: 20em;
+}
+*/
 label {
   display: block;
 }
@@ -27,4 +53,14 @@ label {
   color: #333;
   margin: 1em 0 0.5em 0;
   padding: 5px;
+}
+
+table {
+  background-color: gray;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+td {
+  padding: 8px;
+  border: 1px solid darkred;
 }
